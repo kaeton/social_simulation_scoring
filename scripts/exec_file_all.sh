@@ -1,5 +1,5 @@
 input_file_path=$1
-# FILES=($(ls -1 input_file_path))
+execute_file_number=$2
 FILES=($(ls -1 ${input_file_path}))
 echo ${#FILES[*]}
 
@@ -19,13 +19,18 @@ input_option () {
         echo "read program file with emacs"
         emacs ${progfile}
         status=2
+    elif [ ${OPTION} = "q" ]; then
+        echo "shutdown"
+        status=3
+    else
+        status=2
     fi
 }
 
 for ((i = 0; i < ${#FILES[*]}; i++)) {
     id=${FILES[i]}
     echo ${id}
-    progfile="${input_file_path}/${id}/${id}-1.c"
+    progfile="${input_file_path}/${id}/${id}-${execute_file_number}.c"
     if [ ! -f $progfile ]; then
         echo "NOT EXIST"
     else
@@ -40,7 +45,9 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
         echo "INPUT OPTION -: "
         read OPTION
         input_option ${OPTION}
-        if [ ${status} = 0 ]; then
+        # ここにorで３の処理
+        echo ${status}
+        if [ ${status} = 0 ] || [ ${status} = 3 ]; then
             break
         elif [ ${status} = 1 ]; then
             i=$i-1
@@ -49,4 +56,12 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
             continue
         fi
     done
+
+    echo "thought"
+    echo ${status}
+
+    if [ ${status} = 3]; then
+        echo "shutdown 222222222"
+        exit 0;
+    fi
 }
