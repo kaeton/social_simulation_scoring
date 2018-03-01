@@ -3,7 +3,7 @@ execute_file_number=$2
 FILES=($(ls -1 ${input_file_path}))
 echo ${#FILES[*]}
 
-input_option () {
+function input_option () {
     echo ${OPTION}
     if [ ${OPTION} = "n" ]; then
         echo "Move to next student"
@@ -57,14 +57,7 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
         fi
     done
 
-
-    ##################################################
-    # TODO : なんか知らんけどstatusのifがうまく通らない
-    echo "thought"
-    echo ${status}
-
-    if [ ${status} = 3]; then
-        echo "shutdown 222222222"
+    if [ ${status} = 3 ]; then
         exit 0;
     fi
 }
