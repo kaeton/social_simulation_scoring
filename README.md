@@ -1,7 +1,8 @@
 # 社会シミュレーションの採点用プログラム
 ## 実行環境 
-* mac book 標準搭載のbashで開発しています。大学環境のbashでも動作確認する予定です。
-version 3.2.57(1)-release (x86_64-apple-darwin16)
+* mac book 標準搭載のbashで開発しています。version 3.2.57(1)-release (x86_64-apple-darwin16)
+* 大学環境のbashでも動作確認済みです。
+
 
 ## 使用方法
 1. 実行方法について
