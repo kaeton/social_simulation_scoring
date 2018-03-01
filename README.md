@@ -4,7 +4,7 @@
 version 3.2.57(1)-release (x86_64-apple-darwin16)
 
 ## 使用方法
-1.
+1. 実行方法について
 ```
 $ sh ./scripts/exec_file_all.sh [入力ファイルパス] [オプション（課題番号）]
 ```
