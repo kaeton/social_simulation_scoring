@@ -4,7 +4,6 @@ FILES=($(ls -1 ${input_file_path}))
 echo ${#FILES[*]}
 
 function input_option () {
-    echo ${OPTION}
     if [ ${OPTION} = "n" ]; then
         echo "Move to next student"
         status=0
@@ -45,8 +44,6 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
         echo "INPUT OPTION -: "
         read OPTION
         input_option ${OPTION}
-        # ここにorで３の処理
-        echo ${status}
         if [ ${status} = 0 ] || [ ${status} = 3 ]; then
             break
         elif [ ${status} = 1 ]; then
