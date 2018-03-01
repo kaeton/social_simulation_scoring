@@ -35,13 +35,13 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
         echo "NOT EXIST"
     else
         echo ${progfile}
-        gcc ${progfile}
+        gcc -lm ${progfile}
         ./a.out
         echo ${progfile}
     fi
 
     while true; do
-        echo "n := next student\nr := Repeat the experiment again\nv := read program file with vim"
+        echo "n := next student\nr := Repeat the experiment again\nv := read program file with vim\ne := read program file with emacs\nq := quit this process"
         echo "INPUT OPTION -: "
         read OPTION
         input_option ${OPTION}
@@ -57,6 +57,9 @@ for ((i = 0; i < ${#FILES[*]}; i++)) {
         fi
     done
 
+
+    ##################################################
+    # TODO : なんか知らんけどstatusのifがうまく通らない
     echo "thought"
     echo ${status}
 
